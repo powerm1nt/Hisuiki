@@ -1,4 +1,4 @@
-# Hallo, I'm Emi!
+# Hallo, I'm Leo!
 
 Fullstack developer with experience in software engineering, cloud
 deployment, and infrastructure automation.
@@ -22,11 +22,11 @@ Also managed a Moggo client project during my freelance work.
 
 ## Selected projects
 
-- **[IntelGfx](https://github.com/hisuiki/IntelGfx)**  
+- **[IntelGfx](https://github.com/powerm1nt/IntelGfx)**  
   Experimental Intel display and 3D graphics package for Haiku,
   with diagnostics, tests, and build tooling.
 
-- **[Cutedraw](https://github.com/hisuiki/cutedraw)**  
+- **[Cutedraw](https://github.com/powerm1nt/cutedraw)**  
   A telemetry-free fork of Excalidraw.
 
 - **[More projects at HisuikaHQ](https://github.com/hisuikahq)**
