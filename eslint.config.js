@@ -11,17 +11,18 @@ export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
-    // Underscore-prefixed parameters are deliberate placeholders, not oversights. Express in
-    // particular identifies error middleware by arity, so its unused `next` argument has to stay.
     rules: {
       "@typescript-eslint/no-unused-vars": [
         "error",
-        { argsIgnorePattern: "^_", varsIgnorePattern: "^_", caughtErrors: "none" },
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          caughtErrors: "none",
+        },
       ],
     },
   },
   {
-    // The API is Node-only: no browser globals, no React.
     files: ["server/**/*.ts"],
     languageOptions: {
       ecmaVersion: 2022,
@@ -54,5 +55,5 @@ export default tseslint.config(
         version: "19.0",
       },
     },
-  }
+  },
 );

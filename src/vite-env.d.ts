@@ -1,9 +1,7 @@
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
-  /** Origin of the API; empty in dev, where vite proxies /api to the local backend. */
   readonly VITE_API_BASE_URL?: string;
-  /** CDN base URL for static assets. */
   readonly VITE_ASSET_BASE_URL?: string;
 }
 

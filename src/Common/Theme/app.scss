@@ -1,8 +1,5 @@
-/* NukaWorks — global styles */
 *, *::before, *::after { box-sizing: border-box; }
 
-/* Self-hosted Segoe UI. Only the six real static weights it ships, so the browser
-   matches a real face instead of synthesising 200/500. */
 @font-face { font-family: "Segoe UI"; src: url("/fonts/Segoe UI Light 300.ttf") format("truetype"); font-weight: 300; font-style: normal; font-display: swap; }
 @font-face { font-family: "Segoe UI"; src: url("/fonts/Segoe UI Light Italic 300.ttf") format("truetype"); font-weight: 300; font-style: italic; font-display: swap; }
 @font-face { font-family: "Segoe UI"; src: url("/fonts/Segoe UI Semilight 350.ttf") format("truetype"); font-weight: 350; font-style: normal; font-display: swap; }
@@ -16,9 +13,6 @@
 @font-face { font-family: "Segoe UI"; src: url("/fonts/Segoe UI Black 900.ttf") format("truetype"); font-weight: 900; font-style: normal; font-display: swap; }
 @font-face { font-family: "Segoe UI"; src: url("/fonts/Segoe UI Black Italic 900.ttf") format("truetype"); font-weight: 900; font-style: italic; font-display: swap; }
 
-/* ── Color system ────────────────────────────────────────────────────────
-   Pre-JS fallback only: palette.ts resamples all of these from the wallpaper at
-   runtime and enforces the WCAG minimums. */
 :root {
   --wallpaper-url: url("/assets/default2.png");
 

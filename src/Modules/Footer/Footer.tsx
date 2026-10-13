@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ExternalLink from "../../Common/Components/ExternalLink/ExternalLink";
-import SmartImage from "../../Common/Components/SmartImage/SmartImage";
+import SmartImage from "../../Common/Components/Image/Image";
 import { assetUrl } from "../../Services/config";
 
 interface VersionInfo {
@@ -8,7 +8,6 @@ interface VersionInfo {
   build: number;
 }
 
-// Used if version.json is missing or malformed.
 const FALLBACK_VERSION = "2.1";
 
 export default function Footer() {
@@ -37,7 +36,11 @@ export default function Footer() {
     <footer className="main-footer">
       <div className="footer-container">
         <div className="footer-left">
-          <ExternalLink href="https://nuka.works/" label="NukaWorks" className="sunproj-logo">
+          <ExternalLink
+            href="https://nuka.works/"
+            label="NukaWorks"
+            className="sunproj-logo"
+          >
             <SmartImage
               src={assetUrl("logo_nwrks.png")}
               alt="NukaWorks Logo"
@@ -52,7 +55,10 @@ export default function Footer() {
           </ExternalLink>
 
           <div className="projAbout">
-            <p>© {new Date().getUTCFullYear()} NukaWorks Solutions - All rights reserved.</p>
+            <p>
+              © {new Date().getUTCFullYear()} NukaWorks Solutions - All rights
+              reserved.
+            </p>
             <ExternalLink
               href="https://github.com/powerm1nt/About-me"
               label="About Me on GitHub"

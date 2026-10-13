@@ -1,20 +1,18 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useExternalLink, type PendingLink } from "../../../Services/externalLink";
+import {
+  useExternalLink,
+  type PendingLink,
+} from "../../../Services/externalLink";
 
-// Keep in sync with app.scss's .app-modal.is-closing animation duration.
 const CLOSE_ANIMATION_MS = 180;
 
-/** Confirm-before-leaving dialog for outbound links. Mounted once at the app root. */
 export default function AppModal() {
   const { pending, clear } = useExternalLink();
 
-  // The dialog outlives `pending` by one animation, so the closing link is stashed here rather
-  // than mirroring pending into state from an effect.
   const [closingLink, setClosingLink] = useState<PendingLink | null>(null);
 
   const shown = pending ?? closingLink;
   const closing = pending === null && closingLink !== null;
-
   const cancelRef = useRef<HTMLButtonElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<number | null>(null);
@@ -23,14 +21,17 @@ export default function AppModal() {
     if (!pending) return; // already closing
     setClosingLink(pending);
     clear();
-    closeTimer.current = window.setTimeout(() => setClosingLink(null), CLOSE_ANIMATION_MS);
+    closeTimer.current = window.setTimeout(
+      () => setClosingLink(null),
+      CLOSE_ANIMATION_MS,
+    );
   }, [pending, clear]);
 
   useEffect(
     () => () => {
       if (closeTimer.current !== null) window.clearTimeout(closeTimer.current);
     },
-    []
+    [],
   );
 
   // Focus the safe action and trap Tab within the dialog.
@@ -50,8 +51,10 @@ export default function AppModal() {
       if (!container) return;
 
       const focusables = Array.from(
-        container.querySelectorAll<HTMLElement>("button, a[href], [tabindex]")
-      ).filter((el) => !(el as HTMLButtonElement).disabled && el.tabIndex !== -1);
+        container.querySelectorAll<HTMLElement>("button, a[href], [tabindex]"),
+      ).filter(
+        (el) => !(el as HTMLButtonElement).disabled && el.tabIndex !== -1,
+      );
       if (focusables.length === 0) return;
 
       const first = focusables[0]!;
@@ -78,7 +81,10 @@ export default function AppModal() {
   };
 
   return (
-    <div className={`app-modal-overlay ${closing ? "is-closing" : ""}`.trim()} onClick={close}>
+    <div
+      className={`app-modal-overlay ${closing ? "is-closing" : ""}`.trim()}
+      onClick={close}
+    >
       <div
         className={`app-modal ${closing ? "is-closing" : ""}`.trim()}
         role="alertdialog"
@@ -91,13 +97,24 @@ export default function AppModal() {
         <h2 className="app-modal-title" id="app-modal-title">
           {shown.label}
         </h2>
-        <p className="app-modal-message">You&apos;re about to open an external link outside this site.</p>
+        <p className="app-modal-message">
+          You&apos;re about to open an external link outside this site.
+        </p>
         <p className="app-modal-url">{shown.url}</p>
         <div className="app-modal-actions">
-          <button type="button" className="app-modal-btn" ref={cancelRef} onClick={close}>
+          <button
+            type="button"
+            className="app-modal-btn"
+            ref={cancelRef}
+            onClick={close}
+          >
             cancel
           </button>
-          <button type="button" className="app-modal-btn app-modal-btn-confirm" onClick={confirm}>
+          <button
+            type="button"
+            className="app-modal-btn app-modal-btn-confirm"
+            onClick={confirm}
+          >
             continue
           </button>
         </div>

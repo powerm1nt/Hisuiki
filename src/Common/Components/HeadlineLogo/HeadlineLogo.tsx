@@ -1,4 +1,4 @@
-import SmartImage from "../SmartImage/SmartImage";
+import SmartImage from "../Image/Image";
 import { assetUrl } from "../../../Services/config";
 
 export default function HeadlineLogo() {

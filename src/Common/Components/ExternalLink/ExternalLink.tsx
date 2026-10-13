@@ -8,11 +8,12 @@ export interface ExternalLinkProps {
   children?: ReactNode;
 }
 
-/**
- * An outbound link routed through the confirm-before-leaving dialog. The real href stays on the
- * element so hover, copy and open-in-new-tab behave normally; only the plain click is intercepted.
- */
-export default function ExternalLink({ href, label, className, children }: ExternalLinkProps) {
+export default function ExternalLink({
+  href,
+  label,
+  className,
+  children,
+}: ExternalLinkProps) {
   const { request } = useExternalLink();
 
   return (
@@ -22,7 +23,8 @@ export default function ExternalLink({ href, label, className, children }: Exter
       rel="noreferrer"
       className={className}
       onClick={(e) => {
-        if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey)
+          return;
         e.preventDefault();
         request(href, label);
       }}

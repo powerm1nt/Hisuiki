@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<!-- The inline background is the pre-stylesheet flash guard and the macOS overscroll color, so it
-     has to match app.scss's own `html` background-color rather than fight it: at #121212 it also
-     overrode the base the fallback wallpaper is screen-blended against, which is what mutes it. -->
 <html lang="en" style="background-color: #322c58;">
 
 <head>
@@ -12,42 +9,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <meta name="theme-color" content="#121212" />
-    <meta name="description" content="Hisuiki is a media sharing and blogging platform: post photos, write articles, and comment on what others share." />
-    <meta name="keywords" content="Hisuiki, photo sharing, photos, blogging, blog, writing, media platform, community" />
+    <meta name="description" content="hisuika is a media sharing and blogging platform: post photos, write articles, and comment on what others share." />
+    <meta name="keywords" content="hisuika, photo sharing, photos, blogging, blog, writing, media platform, community" />
 
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="canonical" href="https://hisuiki.com" />
+    <link rel="canonical" href="https://hisuika.com" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://hisuiki.com" />
-    <meta property="og:site_name" content="Hisuiki" />
-    <meta property="og:title" content="Hisuiki — Photos &amp; Writing" />
-    <meta property="og:description" content="Hisuiki is a media sharing and blogging platform: post photos, write articles, and comment on what others share." />
-    <meta property="og:image" content="https://cdn.hisuiki.com/static/pfp.jpg" />
+    <meta property="og:url" content="https://hisuika.com" />
+    <meta property="og:site_name" content="hisuika" />
+    <meta property="og:title" content="hisuika — Photos &amp; Writing" />
+    <meta property="og:description" content="hisuika is a media sharing and blogging platform: post photos, write articles, and comment on what others share." />
+    <meta property="og:image" content="https://cdn.hisuika.com/static/pfp.jpg" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://hisuiki.com" />
-    <meta name="twitter:title" content="Hisuiki — Photos &amp; Writing" />
-    <meta name="twitter:description" content="Hisuiki is a media sharing and blogging platform: post photos, write articles, and comment on what others share." />
-    <meta name="twitter:image" content="https://cdn.hisuiki.com/static/pfp.jpg" />
+    <meta name="twitter:url" content="https://hisuika.com" />
+    <meta name="twitter:title" content="hisuika — Photos &amp; Writing" />
+    <meta name="twitter:description" content="hisuika is a media sharing and blogging platform: post photos, write articles, and comment on what others share." />
+    <meta name="twitter:image" content="https://cdn.hisuika.com/static/pfp.jpg" />
 
-    <title>Hisuiki — Photos &amp; Writing</title>
+    <title>hisuika — Photos &amp; Writing</title>
 
 </head>
-
-<!-- No background on body, deliberately: app.scss keeps it transparent so the wallpaper painted on
-     the html canvas stays visible. An inline color here beats that rule and paints an opaque slab
-     over the canvas, which buried the fallback photo and left .main-footer's backdrop-filter with a
-     flat color to blur — i.e. no frosted glass at all until today's photo had loaded. -->
 <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
 
     <div id="app">
-        <!-- Static skeleton shown until the bundle boots — matches the real app chrome.
-             React replaces it wholesale when it mounts into #app. -->
         <div class="sk-shell">
             <header class="sk-header">
                 <div class="sk-header-inner">

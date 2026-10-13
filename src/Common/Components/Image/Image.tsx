@@ -6,20 +6,28 @@ export interface SmartImageProps {
   width?: string;
   height?: string;
   style?: CSSProperties;
-  /** When true the wrapper is display:block (full-width). Default: inline. */
   block?: boolean;
 }
 
 type LoadState = "loading" | "loaded" | "error";
 
-/** An <img> that holds its own space: a skeleton while loading, an alt-text placeholder if it fails. */
-export default function SmartImage({ src, alt, width, height, style, block }: SmartImageProps) {
+export default function SmartImage({
+  src,
+  alt,
+  width,
+  height,
+  style,
+  block,
+}: SmartImageProps) {
   const [state, setState] = useState<LoadState>("loading");
 
   const sizeStyle: CSSProperties = { width, height };
 
   return (
-    <div className={`smart-img-wrap ${block ? "is-block" : ""}`.trim()} style={{ width }}>
+    <div
+      className={`smart-img-wrap ${block ? "is-block" : ""}`.trim()}
+      style={{ width }}
+    >
       {state === "loading" && (
         <span
           className="skeleton smart-img-skeleton"
@@ -53,11 +61,14 @@ export default function SmartImage({ src, alt, width, height, style, block }: Sm
         </div>
       )}
 
-      {/* Always rendered; hidden until loaded, removed from flow on error. */}
       <img
         src={src}
         alt={alt ?? ""}
-        style={{ ...sizeStyle, display: state === "loaded" ? "block" : "none", ...style }}
+        style={{
+          ...sizeStyle,
+          display: state === "loaded" ? "block" : "none",
+          ...style,
+        }}
         onLoad={() => setState("loaded")}
         onError={() => setState("error")}
       />
